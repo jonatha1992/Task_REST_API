@@ -1,3 +1,4 @@
+from pathlib import Path
 from fastapi import FastAPI, Request, Form, Depends
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -9,7 +10,9 @@ from .crud import get_tasks, create_task, delete_task
 
 Base.metadata.create_all(bind=engine)
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+
+TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
+templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
 
 def get_db():
     db = SessionLocal()
@@ -28,7 +31,7 @@ async def add_task(title: str = Form(...), description: str = Form(...), db: Ses
     create_task(db, title, description)
     return RedirectResponse("/", status_code=HTTP_303_SEE_OTHER)
 
-@app.get("/delete-task/{task_id}")
+@app.post("/delete-task/{task_id}")
 async def remove_task(task_id: int, db: Session = Depends(get_db)):
     delete_task(db, task_id)
     return RedirectResponse("/", status_code=HTTP_303_SEE_OTHER)
