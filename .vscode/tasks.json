@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "install", "type": "shell", "command": "poetry install", "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] },
+    { "label": "run", "type": "shell", "command": "poetry run uvicorn fastapi_tasks.main:app --reload --host 127.0.0.1", "options": { "cwd": "${workspaceFolder}" }, "isBackground": true, "problemMatcher": [] },
+    { "label": "test", "type": "shell", "command": "poetry run pytest tests", "options": { "cwd": "${workspaceFolder}" }, "problemMatcher": [] }
+  ]
+}

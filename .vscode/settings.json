@@ -1,3 +1,14 @@
 {
-    "djlint.showInstallError": false
+    "djlint.showInstallError": false,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#3495b5",
+        "activityBar.foreground": "#ffffff",
+        "statusBar.background": "#3495b5",
+        "statusBar.foreground": "#ffffff",
+        "titleBar.background": "#3495b5",
+        "titleBar.foreground": "#ffffff",
+        "activityBar.inactiveForeground": "#ffffffaa",
+        "titleBar.inactiveBackground": "#3495b599"
+    },
+    "peacock.color": "#3495b5"
 }

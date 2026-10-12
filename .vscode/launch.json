@@ -1,0 +1,7 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    { "name": "FastAPI: Task REST API", "type": "debugpy", "request": "launch", "module": "uvicorn", "args": ["fastapi_tasks.main:app", "--reload", "--host", "127.0.0.1"], "cwd": "${workspaceFolder}" },
+    { "name": "pytest: Task REST API", "type": "debugpy", "request": "launch", "module": "pytest", "args": ["tests"], "cwd": "${workspaceFolder}" }
+  ]
+}
